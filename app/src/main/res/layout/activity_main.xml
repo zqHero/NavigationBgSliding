@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:zq="http://schemas.android.com/apk/res-auto"
+    tools:context="com.hero.zhaoq.navigationbgsliding.MainActivity">
+
+    <!--使用 TabLayout  实现导航背景滑动效果   -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        >
+        <!--design 包  中  tabLayout需要 添加  design依赖-->
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tab_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="2dip"
+            android:gravity="center_horizontal"
+            app:tabTextColor="#444444"
+            app:tabSelectedTextColor="#f000dd"
+            app:tabIndicatorColor="#ffdd00"
+            app:tabTextAppearance="@android:style/TextAppearance.Holo.Large"
+            app:tabIndicatorHeight="4dp"
+            />
+
+        <!--app:tabBackground="@drawable/tab_selector"  暂时  不使用-->
+
+        <!--
+                    app:tabMaxWidth="xxdp" // 设置最大的tab宽度：
+                    app:tabMode="scrollable" //数据很多的时候我们应该怎么办呢，是可以滑动的
+                    app:tabIndicatorHeight="4dp"  //设置指示器下标的高度：
+                    app:tabTextAppearance="@android:style/TextAppearance.Holo.Large"//设置文字的外貌
+                    app:tabBackground="@drawable/tab_selector" //设置背景色
+                    app:tabIndicatorColor="@color/white"    //设置  分割线的颜色
+                    app:tabSelectedTextColor="@color/gray" //设置  被选中后的  Tab颜色
+                    app:tabTextColor="@color/white"   //设置  文本颜色
+                -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dip"
+            android:background="#00ff0f"/>
+
+
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/tab_viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dip"
+        android:background="#00ff0f"/>
+
+    <!--使用  自定义   布局-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:layout_weight="1"
+        >
+
+        <!--自定义  Tablayout   使用自定义属性-->
+        <com.hero.zhaoq.navigationbgsliding.widgets.MyTabLayout
+            android:id="@+id/my_tab"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:paddingLeft="25dp"
+            android:paddingRight="25dp"
+            zq:zq_bar_color="#ffffff"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            zq:zq_indicator_anim_enable="true"
+            zq:zq_indicator_color="#F6CE59"
+            zq:zq_indicator_margin_bottom="2dp"
+            zq:zq_indicator_margin_left="2dp"
+            zq:zq_indicator_margin_right="2dp"
+            zq:zq_indicator_margin_top="2dp"
+            zq:zq_textBold="SELECT"/>
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/my_viewPager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </LinearLayout>
+</LinearLayout>
